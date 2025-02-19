@@ -59,11 +59,10 @@ export default function Home() {
     <motion.div key="cover" className="w-full h-screen bg-[#f8f5e9] p-20 flex items-center justify-center">
       <div className="text-center">
         <h1 className="text-6xl font-serif mb-6">
-          The Journey of
           <span className="block mt-4 text-amber-900">Kiran Kandel</span>
         </h1>
         <p className="text-xl font-serif italic text-gray-700 max-w-2xl mx-auto mb-8">
-          &ldquo;Every line of code is a step forward, every project a new destination.&rdquo;
+          &ldquo;Cogito Ergo Sum&rdquo;
         </p>
         <div className="flex justify-center gap-6">
           <BookOpenIcon className="w-8 h-8 text-amber-900" />

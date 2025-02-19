@@ -1,12 +1,9 @@
-import type { NextConfig } from "next";
+const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
   output: 'export',
-  images: {
-    unoptimized: true,
-  },
-  basePath: '',
-  trailingSlash: true,
-}
+  basePath: '/portfolio',  // Replace with your GitHub repo name
+  assetPrefix: isProd ? '/portfolio/' : '',
+};
 
-export default nextConfig;
+module.exports = nextConfig;

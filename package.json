@@ -2,11 +2,13 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://kirankandel.com.np",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "deploy": "gh-pages -d out",
+    "predeploy": "next build",
+    "deploy": "gh-pages -d out -b gh-pages",
     "lint": "next lint"
   },
   "dependencies": {
