@@ -39,22 +39,33 @@ export default function Home() {
 
   useEffect(() => {
     let scrollTimeout: NodeJS.Timeout;
+    let lastScrollTime = Date.now();
+    const scrollCooldown = 1000; // 1 second cooldown between scrolls
 
     const handleScroll = (e: WheelEvent) => {
       e.preventDefault();
+      
+      const currentTime = Date.now();
+      if (currentTime - lastScrollTime < scrollCooldown) return;
       
       clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(() => {
         const direction = e.deltaY > 0 ? 1 : -1;
         changePage(direction);
+        lastScrollTime = currentTime;
       }, 50);
     };
 
     const handleKeyDown = (e: KeyboardEvent) => {
+      const currentTime = Date.now();
+      if (currentTime - lastScrollTime < scrollCooldown) return;
+      
       if (e.key === 'ArrowUp') {
         changePage(-1);
+        lastScrollTime = currentTime;
       } else if (e.key === 'ArrowDown') {
         changePage(1);
+        lastScrollTime = currentTime;
       }
     };
 
