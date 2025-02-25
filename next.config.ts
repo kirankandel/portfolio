@@ -1,9 +1,15 @@
 const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
+  reactStrictMode: true,
+  images: {
+    unoptimized: true,
+  },
   output: 'export',
-  basePath: '/portfolio',  // Replace with your GitHub repo name
-  assetPrefix: isProd ? '/portfolio/' : '',
+  assetPrefix: isProd ? 'https://kirankandel.com.np' : '',
+  basePath: '',
+  trailingSlash: true,
+  skipTrailingSlashRedirect: true,
 };
 
-module.exports = nextConfig;
+export default nextConfig;
