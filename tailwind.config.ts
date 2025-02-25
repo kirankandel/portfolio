@@ -8,8 +8,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
+        background: "#ecdcc5", // Soft, warm off-white color
         foreground: "var(--foreground)",
+        primary: {
+          DEFAULT: '#d4a76a',
+          light: '#ecdcc5', // Light parchment color
+          dark: '#b38748',
+        },
       },
       fontFamily: {
         playfair: ['var(--font-playfair)', 'serif'],

@@ -139,23 +139,23 @@ const CareerJourneyMap = () => {
       <div className="relative z-10 w-full h-full p-8">
         {/* Map Header */}
         <div className="absolute top-4 left-1/2 transform -translate-x-1/2 text-center z-10 px-6 py-3 bg-amber-50/90 rounded-lg border-2 border-amber-900">
-          <h1 className="text-3xl font-bold text-amber-900">The Career Journey of {cvData.profile.name}</h1>
+          <h1 className="text-3xl font-bold text-amber-900">My Journey</h1>
           <h2 className="text-lg italic text-amber-800">{cvData.profile.title}</h2>
         </div>
 
         {/* Interactive Elements - Positioned to match the map's landmarks */}
         <div className="absolute inset-0">
-          {/* Education (Mountains) */}
+          {/* Projects */}
           <div 
             className="absolute top-1/4 left-1/3 transform -translate-x-1/2 cursor-pointer hover:scale-110 transition-transform"
-            onClick={() => handleLocationClick('education', cvData.education)}
+            onClick={() => handleLocationClick('projects', cvData.projects)}
           >
             <div className="bg-amber-50/80 p-2 rounded-lg shadow-lg">
-              <h3 className="text-sm font-bold">Mountains of Knowledge</h3>
+              <h3 className="text-sm font-bold">Project Fortress</h3>
             </div>
           </div>
 
-          {/* Experience (Ship) */}
+          {/* Experience */}
           <div 
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 cursor-pointer hover:scale-110 transition-transform"
             onClick={() => handleLocationClick('experience', cvData.experience)}
@@ -165,23 +165,182 @@ const CareerJourneyMap = () => {
             </div>
           </div>
 
-          {/* Projects (Castle) */}
+          {/* Education */}
           <div 
             className="absolute top-1/3 right-1/3 cursor-pointer hover:scale-110 transition-transform"
-            onClick={() => handleLocationClick('projects', cvData.projects)}
+            onClick={() => handleLocationClick('education', cvData.education)}
           >
             <div className="bg-amber-50/80 p-2 rounded-lg shadow-lg">
-              <h3 className="text-sm font-bold">Project Fortress</h3>
+              <h3 className="text-sm font-bold">Mountains of Knowledge</h3>
             </div>
           </div>
 
-          {/* Rest of your interactive elements positioned similarly */}
+          {/* Skills */}
+          <div 
+            className="absolute bottom-1/4 right-1/4 cursor-pointer hover:scale-110 transition-transform"
+            onClick={() => handleLocationClick('skills', cvData.skills)}
+          >
+            <div className="bg-amber-50/80 p-2 rounded-lg shadow-lg">
+              <h3 className="text-sm font-bold">Skills Forest</h3>
+            </div>
+          </div>
+
+          {/* Contact */}
+          <div 
+            className="absolute bottom-1/3 left-1/4 cursor-pointer hover:scale-110 transition-transform"
+            onClick={() => handleLocationClick('contact', cvData.contact)}
+          >
+            <div className="bg-amber-50/80 p-2 rounded-lg shadow-lg">
+              <h3 className="text-sm font-bold">Contact Treasure</h3>
+            </div>
+          </div>
+
+          {/* Profile */}
+          <div 
+            className="absolute top-1/3 left-1/4 cursor-pointer hover:scale-110 transition-transform"
+            onClick={() => handleLocationClick('profile', cvData.profile)}
+          >
+            <div className="bg-amber-50/80 p-2 rounded-lg shadow-lg">
+              <h3 className="text-sm font-bold">Profile Harbor</h3>
+            </div>
+          </div>
         </div>
 
         {/* Legend and other UI elements remain the same */}
       </div>
 
-      {/* Scroll overlay remains the same */}
+      {/* Scroll Overlay */}
+      {showScroll && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div 
+            className="w-11/12 max-w-2xl max-h-[80vh] overflow-y-auto rounded-lg p-8 relative"
+            style={{
+              backgroundColor: '#f3e6d0',
+              backgroundImage: `
+                radial-gradient(#d7c4a1 2px, transparent 2px),
+                linear-gradient(#e8d5b5 2px, transparent 2px)
+              `,
+              backgroundSize: '32px 32px, 32px 32px',
+              boxShadow: 'inset 0 0 60px rgba(139, 69, 19, 0.2)',
+              border: '8px solid #8B4513',
+              borderRadius: '10px'
+            }}
+          >
+            {/* Close Button */}
+            <button 
+              onClick={closeScroll}
+              className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-primary-dark text-primary-light hover:bg-primary border-2 border-primary"
+            >
+              ×
+            </button>
+
+            {/* Update content container backgrounds */}
+            <div className="relative">
+              {/* Content sections remain the same, just updating their background classes */}
+              {activeLocation === 'education' && (
+                <div className="space-y-6">
+                  <h2 className="text-2xl font-bold text-primary-dark text-center border-b-2 border-primary-dark/20 pb-2">
+                    Educational Journey
+                  </h2>
+                  {scrollContent.map((edu: { degree: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined; institution: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined; years: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined; details: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined; }, index: React.Key | null | undefined) => (
+                    <div key={index} className="bg-primary-light/30 p-4 rounded-lg border border-primary-dark/20 shadow-inner">
+                      <h3 className="text-xl font-bold text-amber-900">{edu.degree}</h3>
+                      <p className="text-amber-800 font-semibold">{edu.institution}</p>
+                      <p className="text-amber-700">{edu.years}</p>
+                      <p className="mt-2 text-gray-700">{edu.details}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {activeLocation === 'experience' && (
+                <div className="space-y-6">
+                  <h2 className="text-2xl font-bold text-primary-dark text-center border-b-2 border-primary-dark/20 pb-2">Professional Experience</h2>
+                  {scrollContent.map((exp: { role: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined; years: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined; company: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined; description: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined; }, index: React.Key | null | undefined) => (
+                    <div key={index} className="bg-primary-light/30 p-4 rounded-lg border border-primary-dark/20 shadow-inner">
+                      <div className="flex justify-between items-start">
+                        <h3 className="text-xl font-bold text-amber-900">{exp.role}</h3>
+                        <span className="text-sm bg-amber-200 px-2 py-1 rounded-full">{exp.years}</span>
+                      </div>
+                      <p className="text-amber-800 font-semibold">{exp.company}</p>
+                      <p className="mt-2 text-gray-700">{exp.description}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {activeLocation === 'projects' && (
+                <div className="space-y-6">
+                  <h2 className="text-2xl font-bold text-primary-dark text-center border-b-2 border-primary-dark/20 pb-2">Project Showcase</h2>
+                  {scrollContent.map((project: { name: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined; tech: any[]; description: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined; }, index: React.Key | null | undefined) => (
+                    <div key={index} className="bg-primary-light/30 p-4 rounded-lg border border-primary-dark/20 shadow-inner">
+                      <h3 className="text-xl font-bold text-amber-900">{project.name}</h3>
+                      <div className="flex flex-wrap gap-2 my-2">
+                        {project.tech.map((tech: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined, idx: React.Key | null | undefined) => (
+                          <span key={idx} className="bg-amber-900/10 text-amber-900 text-sm px-2 py-1 rounded-full border border-amber-900/20">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      <p className="mt-2 text-gray-700">{project.description}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {activeLocation === 'skills' && (
+                <div className="space-y-6">
+                  <h2 className="text-2xl font-bold text-primary-dark text-center border-b-2 border-primary-dark/20 pb-2">Skills & Expertise</h2>
+                  {Object.entries(scrollContent.reduce((acc: { [x: string]: any[]; }, skill: { category: string | number; }) => {
+                    if (!acc[skill.category]) acc[skill.category] = [];
+                    acc[skill.category].push(skill);
+                    return acc;
+                  }, {})).map(([category, skills]) => (
+                    <div key={category} className="bg-primary-light/30 p-4 rounded-lg border border-primary-dark/20 shadow-inner">
+                      <h3 className="text-lg font-bold text-amber-900 mb-3">{category}</h3>
+                      <div className="grid grid-cols-2 gap-4">
+                        {(skills as any[]).map((skill, idx) => (
+                          <div key={idx} className="flex items-center justify-between">
+                            <span className="text-amber-900">{skill.name}</span>
+                            <div className="w-24 h-2 bg-amber-900/10 rounded-full">
+                              <div 
+                                className="h-full bg-amber-900/40 rounded-full"
+                                style={{ width: `${(skill.level / 5) * 100}%` }}
+                              />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {activeLocation === 'contact' && (
+                <div className="space-y-6">
+                  <h2 className="text-2xl font-bold text-primary-dark text-center border-b-2 border-primary-dark/20 pb-2">Contact Information</h2>
+                  <div className="bg-primary-light/30 p-4 rounded-lg border border-primary-dark/20 shadow-inner">
+                    <div className="grid gap-4 text-amber-900">
+                      <p><span className="font-bold">Email:</span> {scrollContent.email}</p>
+                      <p><span className="font-bold">Phone:</span> {scrollContent.phone}</p>
+                      <p><span className="font-bold">Website:</span> {scrollContent.website}</p>
+                      <p><span className="font-bold">Location:</span> {scrollContent.location}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {activeLocation === 'profile' && (
+                <div className="space-y-6">
+                  <h2 className="text-2xl font-bold text-primary-dark text-center border-b-2 border-primary-dark/20 pb-2">About Me</h2>
+                  <div className="bg-primary-light/30 p-4 rounded-lg border border-primary-dark/20 shadow-inner">
+                    <h3 className="text-xl font-bold text-amber-900">{scrollContent.name}</h3>
+                    <p className="text-amber-800 font-semibold">{scrollContent.title}</p>
+                    <p className="mt-2 text-gray-700">{scrollContent.description}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Legend and other UI elements remain the same */}
     </div>
   );
 };
