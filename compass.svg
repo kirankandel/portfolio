@@ -1,0 +1,9 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="45" fill="none" stroke="#8B4513" stroke-width="2"/>
+  <path d="M50,10 L55,50 L50,90 L45,50 Z" fill="#8B4513"/>
+  <path d="M10,50 L50,45 L90,50 L50,55 Z" fill="#8B4513"/>
+  <text x="50" y="25" text-anchor="middle" fill="#8B4513" font-size="12">N</text>
+  <text x="50" y="85" text-anchor="middle" fill="#8B4513" font-size="12">S</text>
+  <text x="15" y="55" text-anchor="middle" fill="#8B4513" font-size="12">W</text>
+  <text x="85" y="55" text-anchor="middle" fill="#8B4513" font-size="12">E</text>
+</svg>
