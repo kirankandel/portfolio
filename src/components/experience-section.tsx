@@ -19,10 +19,10 @@ export default function ExperienceSection() {
         "Led Node.js development initiatives, contributed to open source projects, and implemented security best practices across multiple applications.",
       skills: ["Node.js", "Express", "MongoDB", "Security", "Open Source"],
       highlights: [
-        "Architected and implemented RESTful APIs serving 10K+ daily users",
-        "Reduced API response time by 40% through optimization techniques",
-        "Contributed to 5+ open source projects in the Node.js ecosystem",
-        "Implemented security best practices, reducing vulnerabilities by 80%",
+        "Architected and implemented RESTful APIs for high-traffic applications",
+        "Optimized API performance through efficient code and caching strategies",
+        "Contributed to multiple open source projects in the Node.js ecosystem",
+        "Implemented comprehensive security best practices across applications",
       ],
     },
     {
@@ -33,10 +33,10 @@ export default function ExperienceSection() {
         "Developed responsive and interactive user interfaces using Next.js and React.js, ensuring optimal performance and accessibility.",
       skills: ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "UI/UX"],
       highlights: [
-        "Built performant SPAs with Next.js, achieving 95+ Lighthouse scores",
-        "Implemented responsive designs for 15+ client projects",
-        "Reduced bundle size by 35% through code splitting and lazy loading",
-        "Created reusable component library used across multiple projects",
+        "Built performant SPAs with Next.js, focusing on core web vitals",
+        "Implemented responsive designs for various client projects",
+        "Optimized bundle size through code splitting and lazy loading techniques",
+        "Created reusable component library to improve development efficiency",
       ],
     },
     {
@@ -47,9 +47,9 @@ export default function ExperienceSection() {
         "Designed and implemented RESTful services for e-commerce applications, focusing on scalability and performance optimization.",
       skills: ["RESTful APIs", "Java", "Spring Boot", "PostgreSQL", "E-commerce"],
       highlights: [
-        "Developed microservices architecture for e-commerce platform handling 1000+ transactions daily",
-        "Optimized database queries resulting in 50% faster checkout process",
-        "Implemented caching strategies reducing server load by 30%",
+        "Developed microservices architecture for e-commerce platform",
+        "Optimized database queries to improve checkout process performance",
+        "Implemented effective caching strategies to reduce server load",
         "Created comprehensive API documentation using Swagger",
       ],
     },

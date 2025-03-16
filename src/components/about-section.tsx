@@ -29,7 +29,7 @@ export default function AboutSection() {
               <div className="absolute -inset-4 rounded-2xl bg-gradient-to-r from-primary/20 to-purple-500/20 blur-xl"></div>
               <div className="relative aspect-square overflow-hidden rounded-2xl animated-gradient-border">
                 <Image
-                  src="/placeholder.svg?height=600&width=600"
+                  src="/assets/kirankandel.jpg?600x600"
                   alt="Kiran Kandel"
                   width={600}
                   height={600}
@@ -64,8 +64,7 @@ export default function AboutSection() {
                 enjoy collaborating with teams to deliver high-quality software solutions that meet client requirements.
               </p>
               <p>
-                When I'm not coding, I share my knowledge as a lecturer at Yeti International College, helping to shape
-                the next generation of software developers. I am constantly learning and exploring new technologies to
+                I am constantly learning and exploring new technologies to
                 stay at the forefront of the rapidly evolving tech landscape.
               </p>
             </div>

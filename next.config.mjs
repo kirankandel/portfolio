@@ -6,7 +6,7 @@ const nextConfig = {
     unoptimized: true,
   },
   output: 'export',
-  assetPrefix: isProd ? 'https://kirankandel.github.io/portfolio' : '',
+  assetPrefix: isProd ? '' : '',
   // basePath: '',
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
