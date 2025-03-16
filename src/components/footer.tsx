@@ -25,7 +25,7 @@ export default function Footer() {
                   <span className="sr-only">GitHub</span>
                 </div>
               </Link>
-              <Link href="https://linkedin.com/in/kirankandel" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.linkedin.com/in/kiran-kandel-47460216b/" target="_blank" rel="noopener noreferrer">
                 <div className="rounded-full p-2 bg-secondary/50 hover:bg-primary/20 transition-colors">
                   <Linkedin className="h-5 w-5" />
                   <span className="sr-only">LinkedIn</span>
