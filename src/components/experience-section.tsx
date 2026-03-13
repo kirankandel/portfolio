@@ -14,7 +14,7 @@ export default function ExperienceSection() {
   const experiences = [
     {
       company: "Arthasoft Solutions",
-      period: "2021 - 2024",
+      period: "2021 - Present",
       title: "Software Developer",
       description:
         "Led Node.js development, contributed to open source projects, and implemented security best practices across multiple production applications.",
