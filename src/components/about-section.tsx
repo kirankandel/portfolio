@@ -54,7 +54,7 @@ export default function AboutSection() {
 
             <div className="space-y-4 text-lg text-muted-foreground">
               <p>
-                I started coding as a curious teenager in Kathmandu, tinkering with HTML pages that barely worked.
+                I started coding as a curious teenager, tinkering with HTML pages that barely worked.
                 That spark turned into a career building production software used by real people every day.
               </p>
               <p>
