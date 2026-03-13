@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Badge } from "@/components/ui/badge"
+import { Briefcase } from "lucide-react"
 
 export default function ExperienceSection() {
   const [ref, inView] = useInView({
@@ -13,44 +14,41 @@ export default function ExperienceSection() {
   const experiences = [
     {
       company: "Arthasoft Solutions",
-      period: "2021-2024",
-      title: "Senior Software Developer",
+      period: "2021 - 2024",
+      title: "Software Developer",
       description:
-        "Led Node.js development initiatives, contributed to open source projects, and implemented security best practices across multiple applications.",
+        "Led Node.js development, contributed to open source projects, and implemented security best practices across multiple production applications.",
       skills: ["Node.js", "Express", "MongoDB", "Security", "Open Source"],
       highlights: [
-        "Architected and implemented RESTful APIs for high-traffic applications",
-        "Optimized API performance through efficient code and caching strategies",
-        "Contributed to multiple open source projects in the Node.js ecosystem",
-        "Implemented comprehensive security best practices across applications",
+        "Architected RESTful APIs for high-traffic applications",
+        "Optimized API performance through caching strategies",
+        "Implemented comprehensive security best practices",
       ],
     },
     {
       company: "ReadyToWork Corp",
-      period: "2020-2021",
+      period: "2020 - 2021",
       title: "Frontend Developer",
       description:
-        "Developed responsive and interactive user interfaces using Next.js and React.js, ensuring optimal performance and accessibility.",
-      skills: ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "UI/UX"],
+        "Built responsive, performant user interfaces with Next.js and React, focusing on core web vitals and accessibility.",
+      skills: ["Next.js", "React.js", "TypeScript", "Tailwind CSS"],
       highlights: [
-        "Built performant SPAs with Next.js, focusing on core web vitals",
-        "Implemented responsive designs for various client projects",
-        "Optimized bundle size through code splitting and lazy loading techniques",
-        "Created reusable component library to improve development efficiency",
+        "Built SPAs focusing on core web vitals",
+        "Created reusable component library",
+        "Optimized bundles through code splitting",
       ],
     },
     {
       company: "MBSYS Group",
-      period: "2019-2020",
+      period: "2019 - 2020",
       title: "Backend Developer",
       description:
-        "Designed and implemented RESTful services for e-commerce applications, focusing on scalability and performance optimization.",
-      skills: ["RESTful APIs", "Java", "Spring Boot", "PostgreSQL", "E-commerce"],
+        "Designed and implemented microservices for e-commerce platforms, focusing on scalability and performance.",
+      skills: ["Java", "Spring Boot", "PostgreSQL", "Docker"],
       highlights: [
-        "Developed microservices architecture for e-commerce platform",
-        "Optimized database queries to improve checkout process performance",
-        "Implemented effective caching strategies to reduce server load",
-        "Created comprehensive API documentation using Swagger",
+        "Developed microservices for e-commerce platform",
+        "Optimized database queries for checkout flow",
+        "Created API documentation with Swagger",
       ],
     },
   ]
@@ -76,71 +74,58 @@ export default function ExperienceSection() {
           </p>
         </motion.div>
 
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-transparent via-primary/30 to-transparent"></div>
+        <div className="max-w-3xl mx-auto">
+          <div className="relative">
+            {/* Vertical timeline line */}
+            <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/20 to-transparent"></div>
 
-          <div className="space-y-12">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                className={`flex flex-col ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} gap-8 items-center`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
-              >
-                {/* Timeline dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-primary"></div>
-
-                {/* Date badge - visible only on mobile */}
-                <div className="md:hidden mb-4">
-                  <Badge variant="outline" className="text-sm px-3 py-1 rounded-full">
-                    {exp.period}
-                  </Badge>
-                </div>
-
-                {/* Content */}
-                <div className={`md:w-5/12 ${index % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
-                  <div className="hidden md:block mb-2">
-                    <Badge variant="outline" className="text-sm px-3 py-1 rounded-full">
-                      {exp.period}
-                    </Badge>
+            <div className="space-y-12">
+              {experiences.map((exp, index) => (
+                <motion.div
+                  key={index}
+                  className="relative pl-16 md:pl-20"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                  transition={{ duration: 0.5, delay: 0.15 * (index + 1) }}
+                >
+                  {/* Timeline dot */}
+                  <div className="absolute left-3.5 md:left-5.5 top-1 w-5 h-5 rounded-full bg-background border-2 border-primary flex items-center justify-center">
+                    <Briefcase className="h-2.5 w-2.5 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-1">{exp.company}</h3>
-                  <p className="text-lg text-primary font-medium mb-3">{exp.title}</p>
-                  <p className="text-muted-foreground mb-4">{exp.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4 justify-start md:justify-end">
-                    {exp.skills.map((skill, i) => (
-                      <Badge key={i} variant="secondary" className="text-xs">
-                        {skill}
+
+                  <div className="space-y-3">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                      <h3 className="text-xl font-bold">{exp.company}</h3>
+                      <Badge variant="outline" className="text-xs px-2.5 py-0.5 rounded-full w-fit font-mono">
+                        {exp.period}
                       </Badge>
-                    ))}
-                  </div>
-                </div>
+                    </div>
+                    <p className="text-primary font-medium">{exp.title}</p>
+                    <p className="text-muted-foreground text-sm">{exp.description}</p>
 
-                {/* Empty space for alignment on desktop */}
-                <div className="hidden md:block md:w-2/12"></div>
-
-                {/* Highlights */}
-                <div className="md:w-5/12">
-                  <div className="bg-secondary/50 rounded-lg p-4 backdrop-blur-sm">
-                    <h4 className="font-medium mb-3 text-primary">Key Achievements:</h4>
-                    <ul className="space-y-2">
+                    <ul className="space-y-1.5 pt-1">
                       {exp.highlights.map((highlight, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2"></div>
-                          <span className="text-sm">{highlight}</span>
+                        <li key={i} className="flex items-start gap-2 text-sm">
+                          <span className="w-1 h-1 rounded-full bg-primary mt-2 shrink-0"></span>
+                          <span className="text-muted-foreground">{highlight}</span>
                         </li>
                       ))}
                     </ul>
+
+                    <div className="flex flex-wrap gap-1.5 pt-2">
+                      {exp.skills.map((skill, i) => (
+                        <Badge key={i} variant="secondary" className="text-xs rounded-full font-mono px-2.5 py-0.5">
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
     </section>
   )
 }
-
