@@ -16,7 +16,7 @@ export default function EducationSection() {
     {
       degree: "Masters in Information Technology",
       institution: "CDCSIT, Tribhuwan University",
-      period: "2023-present",
+      period: "2023-2025",
       icon: GraduationCap,
       description:
         "Currently pursuing advanced studies in Information Technology, focusing on modern software development methodologies and emerging technologies.",
@@ -39,7 +39,7 @@ export default function EducationSection() {
     {
       degree: "Lecturer",
       institution: "Yeti International College",
-      period: "2020-present",
+      period: "2020-2021",
       icon: BookOpen,
       description:
         "Teaching computer science and programming courses, mentoring students, and developing curriculum for undergraduate programs.",

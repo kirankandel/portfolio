@@ -3,15 +3,34 @@
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Card, CardContent } from "@/components/ui/card"
+import {
+  Code2,
+  Layout,
+  Server,
+  Cloud,
+  Database,
+  GitBranch,
+  Terminal,
+  Globe,
+  Cpu,
+  Layers,
+  Palette,
+  Container,
+  Brain,
+  Bot,
+  Workflow,
+  Sparkles,
+} from "lucide-react"
 
 type Skill = {
   name: string
-  level: number
-  label?: string
+  icon: React.ComponentType<{ className?: string }>
 }
 
 type SkillCategory = {
   category: string
+  icon: React.ComponentType<{ className?: string }>
+  description: string
   skills: Skill[]
 }
 
@@ -23,41 +42,56 @@ export default function SkillsSection() {
 
   const skillCategories: SkillCategory[] = [
     {
-      category: "Core Expertise",
+      category: "Frontend",
+      icon: Layout,
+      description: "Building responsive, performant user interfaces",
       skills: [
-        { name: "System Design", level: 90 },
-        { name: "Web Development", level: 95 },
-        { name: "Data Analysis", level: 85 },
-        { name: "Prompt Engineering", level: 80 },
+        { name: "React.js", icon: Code2 },
+        { name: "Next.js", icon: Globe },
+        { name: "TypeScript", icon: Code2 },
+        { name: "Tailwind CSS", icon: Palette },
+        { name: "Framer Motion", icon: Layers },
       ],
     },
     {
-      category: "Programming Languages",
+      category: "Backend",
+      icon: Server,
+      description: "Designing scalable APIs and server architectures",
       skills: [
-        { name: "JavaScript", level: 95, label: "Expert" },
-        { name: "Java", level: 85, label: "Advanced" },
-        { name: "Python", level: 85, label: "Advanced" },
-        { name: "Rust", level: 70, label: "Intermediate" },
+        { name: "Node.js", icon: Server },
+        { name: "Express.js", icon: Terminal },
+        { name: "Spring Boot", icon: Cpu },
+        { name: "Python", icon: Code2 },
+        { name: "Java", icon: Code2 },
+        { name: "Rust", icon: Code2 },
       ],
     },
     {
-      category: "Frameworks & Libraries",
+      category: "Database & Infra",
+      icon: Database,
+      description: "Managing data and cloud infrastructure",
       skills: [
-        { name: "React.js", level: 90 },
-        { name: "Next.js", level: 90 },
-        { name: "Node.js", level: 95 },
-        { name: "Express.js", level: 90 },
-        { name: "Spring Boot", level: 80 },
+        { name: "MongoDB", icon: Database },
+        { name: "PostgreSQL", icon: Database },
+        { name: "Redis", icon: Layers },
+        { name: "Docker", icon: Container },
+        { name: "AWS", icon: Cloud },
+        { name: "Git", icon: GitBranch },
+        { name: "CI/CD", icon: Terminal },
       ],
     },
     {
-      category: "Tools & Technologies",
+      category: "AI & Agentic Systems",
+      icon: Brain,
+      description: "Building intelligent, autonomous applications",
       skills: [
-        { name: "Git", level: 90 },
-        { name: "Docker", level: 85 },
-        { name: "AWS", level: 80 },
-        { name: "MongoDB", level: 85 },
-        { name: "PostgreSQL", level: 80 },
+        { name: "Machine Learning", icon: Brain },
+        { name: "LLM Integration", icon: Sparkles },
+        { name: "MCP Servers", icon: Workflow },
+        { name: "Agentic Workflows", icon: Bot },
+        { name: "RAG Pipelines", icon: Layers },
+        { name: "Prompt Engineering", icon: Terminal },
+        { name: "TensorFlow", icon: Cpu },
       ],
     },
   ]
@@ -75,15 +109,15 @@ export default function SkillsSection() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
-            My <span className="gradient-text">Skills</span>
+            Tech <span className="gradient-text">Stack</span>
           </h2>
           <div className="w-20 h-1 bg-primary rounded-full mx-auto mb-6"></div>
           <p className="max-w-2xl mx-auto text-lg text-muted-foreground">
-            My technical expertise and proficiency levels.
+            Technologies and tools I work with daily.
           </p>
         </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2">
           {skillCategories.map((category, index) => (
             <motion.div
               key={index}
@@ -91,25 +125,29 @@ export default function SkillsSection() {
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
             >
-              <Card className="h-full skill-card backdrop-blur-sm bg-background/80">
+              <Card className="h-full skill-card backdrop-blur-sm bg-background/80 border-border/60">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-6 gradient-text">{category.category}</h3>
-                  <div className="space-y-6">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="p-2.5 rounded-lg bg-primary/10">
+                      <category.icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold">{category.category}</h3>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-5">{category.description}</p>
+                  <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill, i) => (
-                      <div key={i} className="space-y-2">
-                        <div className="flex justify-between">
-                          <span className="font-medium">{skill.name}</span>
-                          <span className="text-muted-foreground text-sm">{skill.label || `${skill.level}%`}</span>
-                        </div>
-                        <div className="relative h-2 w-full rounded-full overflow-hidden bg-secondary">
-                          <motion.div
-                            className="absolute top-0 left-0 h-full bg-primary"
-                            initial={{ width: 0 }}
-                            animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
-                            transition={{ duration: 1, delay: 0.2 * (i + 1) }}
-                          />
-                        </div>
-                      </div>
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                        transition={{ duration: 0.3, delay: 0.1 * (index + 1) + 0.05 * i }}
+                        className="flex items-center gap-2 px-3 py-2 rounded-lg bg-secondary/50 border border-border/40 text-sm font-medium hover:bg-primary/10 hover:border-primary/30 hover:text-primary transition-all cursor-default"
+                      >
+                        <skill.icon className="h-3.5 w-3.5 text-muted-foreground" />
+                        {skill.name}
+                      </motion.div>
                     ))}
                   </div>
                 </CardContent>
@@ -121,4 +159,3 @@ export default function SkillsSection() {
     </section>
   )
 }
-
